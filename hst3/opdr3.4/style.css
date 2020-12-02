@@ -1,0 +1,11 @@
+img {
+    margin: 5px;
+}
+
+.red {
+    border: red 4px solid;
+}
+
+.green {
+    border: green 4px solid;
+}
