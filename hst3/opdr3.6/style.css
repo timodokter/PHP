@@ -1,0 +1,24 @@
+html {
+    background-color: blue;
+    font-family: Arial, sans-serif;
+}
+
+table{
+    background-color: white;
+    border: 1px black solid;
+    border-spacing: 0;
+    float: left;
+}
+
+th {
+    height: 50px;
+}
+
+td {
+    height: 50px;
+}
+
+img {
+    top: 51px;
+    position: relative;
+}
