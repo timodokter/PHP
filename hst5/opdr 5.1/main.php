@@ -8,9 +8,5 @@
     Wachtwoord <input type=password name=wachtwoord value=>
     <input type=submit name=knop value=verstuur>
 </form>
-
-<?php
-
-?>
 </body>
 </html>
