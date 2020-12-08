@@ -9,4 +9,3 @@ foreach ($aanmeldingen as $email => $wachtwoord) {
         echo "<a href='index.html'>terug naar het inlog scherm</a>";
     }
 }
-?>

@@ -1,27 +1,31 @@
 <?php
 
+$gegevenEmail = $_POST['email'];
+$gegevenWachtwoord = $_POST['password'];
+
 $user = 'root';
 $pass = 'root';
 
+// Connectie maken
 try {
     $dbh = new PDO('mysql:host=localhost;dbname=inloggegevens;port=8889', $user,
         $pass);
-    $wachtwoorden = $dbh->query('SELECT wachtwoord from gegevens');
-    $emails = $dbh->query('SELECT email from gegevens');
-    $array = array($emails => $wachtwoorden);
-    foreach ($array as $email => $wachtwoord) {
-        if ($_POST['email'] == $email && $_POST['password'] == $wachtwoord) {
-            echo 'welkom';
-        } else if ($_POST['email'] !== $email && $_POST['password'] !==
-            $wachtwoord){
-            echo 'opbokken';
-        }
-    }
-//    foreach($dbh->query('SELECT * from gegevens') as $row) {
-//        print_r($row);
-//    }
-    $dbh = null;
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";
     die();
+}
+
+$rows = $dbh->query('SELECT email, wachtwoord from gegevens');
+
+foreach ($rows as $row) {
+    if ($row['email'] == $gegevenEmail && $row['wachtwoord'] ==
+        $gegevenWachtwoord) {
+        echo "We have a winner!";
+        break;
+    } else if ($row['email'] !== $gegevenEmail OR $row['wachtwoord'] !==
+        $gegevenWachtwoord) {
+        echo 'uw ingevulde gegevens kloppen niet <br>';
+        echo '<a href="index.html">klik hier om terug te gaan naar het formulier</a> <br>';
+        break;
+    }
 }
