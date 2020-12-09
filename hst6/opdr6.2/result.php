@@ -20,7 +20,7 @@ $rows = $dbh->query('SELECT email, wachtwoord from gegevens');
 foreach ($rows as $row) {
     if ($row['email'] == $gegevenEmail && $row['wachtwoord'] ==
         $gegevenWachtwoord) {
-        echo "We have a winner!";
+        echo "WELKOM!";
         break;
     } else if ($row['email'] !== $gegevenEmail OR $row['wachtwoord'] !==
         $gegevenWachtwoord) {
