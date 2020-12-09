@@ -26,6 +26,6 @@ foreach ($rows as $row) {
         $gegevenWachtwoord) {
         echo 'uw ingevulde gegevens kloppen niet <br>';
         echo '<a href="index.html">klik hier om terug te gaan naar het formulier</a> <br>';
-        break;
     }
 }
+
