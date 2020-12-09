@@ -15,12 +15,18 @@ try {
 $rows = $dbh->query("SELECT * from gegevens");
 
 $gegevenemail = $_POST['email'];
-$gegevenwachtwoord = $_POST['wachtwoord'];
+$gegevenwachtwoord = $_POST['password'];
 
+
+//het inlogsysteem
 foreach ($rows as $row) {
     if ($row['email'] == $gegevenemail && $row['wachtwoord'] ==
     $gegevenwachtwoord) {
         echo 'hoi';
+        break;
+    } else if ($row['email'] !== $gegevenemail && $row['wachtwoord'] !==
+        $gegevenwachtwoord) {
+
         break;
     }
 }
