@@ -1,10 +1,6 @@
 <head>
-    <title></title>
-    <style>
-        html {
-            font-family: "Arial", sans-serif;
-        }
-    </style>
+    <title>home page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <?php
 
@@ -13,12 +9,14 @@ $pass = 'root';
 $user = 'root';
 
 //de ingevulde gegevens
-$gegevenemail = $_POST['email'];
-$gegevenwachtwoord = $_POST['password'];
+$gegevenEmail = $_POST['email'];
+$gegevenWachtwoord = $_POST['password'];
+
+$ingelogt = false;
 
 //connectie maken met db
 try {
-    $dbh = new PDO('mysql:host=localhost;dbname=inloggegevens;port=8889',
+    $dbh = new PDO('mysql:host=localhost;dbname=inloggegevensvoorhst7;port=8889',
         $user, $pass);
 } catch (PDOException $e) {
     echo 'ERROR!: ' . $e->getMessage() . '<br>';
@@ -28,18 +26,21 @@ try {
 //het inlogsysteem
 $rows = $dbh->query("SELECT * from gegevens");
 foreach ($rows as $row) {
-    if ($row['email'] == $gegevenemail && $row['wachtwoord'] ==
-    $gegevenwachtwoord) {
+    if ($row['email'] == $gegevenEmail && $row['wachtwoord'] ==
+        $gegevenWachtwoord) {
+        $ingelogt = true;
+        echo '<h2>De home page</h2>';
         if ($row['admin'] == 'true') {
-            echo 'welkom terug admin';
-        } else if ($row['admin'] == 'false') {
-            echo "welkom";
+            echo 'welkom admin ' . $row['name'] . '<br>';
+            echo '<a href="admin.html">de admin pagina</a> <br>';
+        } elseif ($row['admin'] == 'false') {
+            echo 'welkom gebruiker ' . $row['name'] . '<br>';
         }
-        break;
-    } else if ($row['email'] !== $gegevenemail && $row['wachtwoord'] !==
-        $gegevenwachtwoord) {
-        echo 'uw ingevulde wachtwoord of email klopt niet probeer het opnieuw <br>';
-        echo '<a href="index.html">terug naar het inlog formuleir</a>';
-        break;
     }
+}
+if ($ingelogt == false) {
+    echo 'uw ingevulde gegevens kloppen niet <br>';
+    echo '<a href="index.html">klik hier om terug te gaan naar het formulier</a> <br>';
+} else {
+    echo '<a href="index.html">uitloggen</a> <br>';
 }

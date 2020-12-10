@@ -2,6 +2,7 @@
 
 $gegevenEmail = $_POST['email'];
 $gegevenWachtwoord = $_POST['password'];
+$ingelogt = false;
 
 $user = 'root';
 $pass = 'root';
@@ -20,12 +21,12 @@ $rows = $dbh->query('SELECT email, wachtwoord from gegevens');
 foreach ($rows as $row) {
     if ($row['email'] == $gegevenEmail && $row['wachtwoord'] ==
         $gegevenWachtwoord) {
-        echo "WELKOM!";
-        break;
-    } else if ($row['email'] !== $gegevenEmail OR $row['wachtwoord'] !==
-        $gegevenWachtwoord) {
-        echo 'uw ingevulde gegevens kloppen niet <br>';
-        echo '<a href="index.html">klik hier om terug te gaan naar het formulier</a> <br>';
+        echo 'WELKOM!';
+        $ingelogt = true;
     }
 }
 
+if ($ingelogt == false) {
+        echo 'uw ingevulde gegevens kloppen niet <br>';
+        echo '<a href="index.html">klik hier om terug te gaan naar het formulier</a> <br>';
+    }
