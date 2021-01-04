@@ -4,13 +4,13 @@ class Auto
     private $aantalwielen;
 
     public function setAantalWielen() {
-        $this->aantalwielen = 4;
+        $this->aantalwielen;
         }
 }
 
 $auto = new Auto();
 
-$auto->setAantalWielen = 4 ;
+$auto->setAantalWielen = 4;
 
 echo $auto->setAantalWielen;
 ?>
