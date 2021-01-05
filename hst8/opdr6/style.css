@@ -1,0 +1,11 @@
+body{
+    margin: 0;
+}
+
+#wrapper {
+    text-align: center;
+}
+
+img.header {
+    width: 100%;
+}
