@@ -1,5 +1,7 @@
 <?php
 
+include_once ('index.php');
+
 class autoFilter {
     private $banddikte;
     private $merk;
@@ -15,23 +17,23 @@ class autoFilter {
         $this->url = $url;
     }
 
-    public function getBanddikte() {
+    public function getBanddikte(): string {
+        return $this->banddikte;
+    }
+
+    public function getMerk(): string {
         return $this->merk;
     }
 
-    public function getMerk() {
-        return $this->merk;
-    }
-
-    public function getType() {
+    public function getType(): string {
         return $this->type;
     }
 
-    public function getPrijs() {
+    public function getPrijs(): int {
         return $this->prijs;
     }
 
-    public function getUrl() {
+    public function getUrl(): string {
         return $this->url;
     }
 }
@@ -43,13 +45,13 @@ class autoOverzicht {
         $this->autos = [];
     }
 
-    public function getGefilterdeLijst($banddikte, $merk, $minprijs, $maxprijs) {
+    public function getGefilterdeLijst($banddikte, $merk, $minprijs, $maxprijs): array {
         $gefilterdeLijst = [];
 
         foreach ($this->autos as $auto) {
             if ($auto->getBanddikte() === $banddikte && $auto->getMerk() === $merk && $auto->getPrijs() >= $minprijs && $auto->getPrijs() <= $maxprijs) {
                 $gefilterdeLijst[] = $auto;
-            } else if ($auto->getBanddikte() === $banddikte && $merk === "" && $auto->getPrijs() >= $minprijs && $auto->getPrijs() <= $maxprijs) {
+            } else if ($banddikte === "" && $merk === "" && $auto->getPrijs() >= $minprijs && $auto->getPrijs() <= $maxprijs) {
                 $gefilterdeLijst[] = $auto;
             }
         }
@@ -58,10 +60,10 @@ class autoOverzicht {
     }
 
     public function voegAutoToe($auto) {
-        $this->autos = $auto;
+        $this->autos[] = $auto;
     }
 
-    public function getAutoLijst() {
+    public function getAutoLijst(): array {
         return $this->autos;
     }
 }
