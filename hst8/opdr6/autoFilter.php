@@ -1,7 +1,5 @@
 <?php
 
-include_once ('index.php');
-
 class autoFilter {
     private $banddikte;
     private $merk;

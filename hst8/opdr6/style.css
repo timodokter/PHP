@@ -37,18 +37,6 @@ input {
     margin: 15px auto;
 }
 
-div.wheely-img {
-    display:inline-block;
-    height:170px;
-    width:300px;
-    margin:20px;
-    border-radius: 10px;
-    padding:0;
-    text-shadow: 1px 1px 8px #ffffff;
-    background-position:center center;
-    background-size:cover;
-}
-
 h5 {
     font-family: Arial, sans-serif;
     background-color: rgba(255, 255, 255, 0.6);;
@@ -63,7 +51,8 @@ div.picture-holder {
 }
 
 div.pictures {
+    display: inline-block;
     margin: 0;
-    width: 300px;
+    width: 33.33%;
     padding-right: 15px;
 }

@@ -9,11 +9,9 @@ $maxprijs = isset($_GET["max-prijs"]) ? $_GET["max-prijs"] : 99999999999999;
 
 $autoOverzicht = new autoOverzicht();
 $autoOverzicht->voegAutoToe(new autoFilter("Dun", "Audi", "R8", 30000, "https://www.autospectrum.nl/wp-content/uploads/2019/02/audi-r8-v10-decennium-rechts-voor.jpg"));
-$autoOverzicht->voegAutoToe(new autoFilter('Dik', 'Jeep', 'Renegade', 34060, 'https://www.jeep
-.nl/content/dam/jeep/crossmarket/new-renegade-2019/Overview/02_colorizer/02_Colors/02_Trims/01_sport/Sport_296
-.png'));
+$autoOverzicht->voegAutoToe(new autoFilter('Dik', 'Jeep', 'Renegade', 34060, 'https://www.jeep.nl/content/dam/jeep/crossmarket/new-renegade-2019/Overview/02_colorizer/02_Colors/02_Trims/01_sport/Sport_296.png'));
 $autoOverzicht->voegAutoToe(new autoFilter('Middel', 'Bugatti', 'Chiron', 2400000, 'https://images.autowereld.com/1600x1000/bugatti-chiron-noir-matt-e1dfac.jpg'));
-$autoOverzicht->voegAutoToe(new autoFilter('Dik', 'Lamborghini', 'Urus', '278844', 'https://media.autoweek.nl/m/6xlyubvb2t25_480.jpg'));
+$autoOverzicht->voegAutoToe(new autoFilter('Dik', 'Lamborghini', 'Urus', 278844, 'https://media.autoweek.nl/m/6xlyubvb2t25_480.jpg'));
 ?>
 
 <html lang="en">
@@ -22,7 +20,6 @@ $autoOverzicht->voegAutoToe(new autoFilter('Dik', 'Lamborghini', 'Urus', '278844
     <meta charset="UTF-8">
     <link href="style.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
 </head>
 <body>
 <div id="wrapper">
@@ -64,8 +61,8 @@ $autoOverzicht->voegAutoToe(new autoFilter('Dik', 'Lamborghini', 'Urus', '278844
                 include_once ('autoFilter.php');
 
                 foreach ($autoOverzicht->getGefilterdeLijst($banddikte, $merk, $minprijs, $maxprijs) as $auto) {
-                    echo '<div class="pictures">' . $auto->getMerk() . ' - type: ' . $auto->getType() .  ' - Banddikte: ' . $auto->getBanddikte() . " - €" . $auto->getPrijs() . "<br />";
-                    echo '<img width=300 height=300 src="' . $auto->getUrl() . '" alt=""/> <br/> </div>';
+                    echo '<div class="pictures">' . $auto->getMerk() . ' - type: ' . $auto->getType() .  ' - Banddikte: ' . $auto->getBanddikte() . " - €" . $auto->getPrijs() . "<br>";
+                    echo '<img width="100%" src="' . $auto->getUrl() . '" alt=""> <br> </div>';
                 }
                 ?>
     </div>
