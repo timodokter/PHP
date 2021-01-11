@@ -10,9 +10,14 @@
     <h1>Bakkerij Vlecht Beheer</h1>
 </header>
 <div id="wrapper">
-    <form>
-
-    </form>
+    <ul>
+        <li>
+            <a href="index.php">Broodjes overzicht</a>
+        </li>
+        <li>
+            <a href="broodjes_toevoegen.php">Broodjes toevoegen</a>
+        </li>
+    </ul>
 </div>
 </body>
 </html>
