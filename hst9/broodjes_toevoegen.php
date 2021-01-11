@@ -20,16 +20,16 @@
     </ul>
     <form action="index.php" method="get">
         <label>
-            Vul hier het soort broodje in: <br>
-            <input type="text" name="soort-broodje"> <br>
+            Vul hier het soort meel waarmee het broodje gemaakt is in: <br>
+            <input type="text" name="meel-broodje"> <br>
         </label>
         <label>
-            Vul hier de uitvoering in: <br>
-            <input type="text" name="uitvoeing-broodje"> <br>
+            Vul hier de vorm van het broodje in: <br>
+            <input type="text" name="vorm-broodje"> <br>
         </label>
         <label>
-            Vul hier de categorie in: <br>
-            <input type="text" name="categorie-broodje" <br>
+            Vul hier het gewicht van het broodje in: <br>
+            <input type="text" name="gewicht-broodje" <br>
         </label>
         <button type="submit">Submit</button>
         <button type="reset">Reset</button>
