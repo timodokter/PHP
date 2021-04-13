@@ -53,7 +53,6 @@ $autoOverzicht->voegAutoToe(new autoFilter('Dik', 'Lamborghini', 'Urus', 278844,
             <input type="number" id="max-prijs" name="max-prijs">
         </label>
         <button type="submit">Submit</button>
-        <button type="reset">Reset</button>
     </form>
 
     <div class="picture-holder">

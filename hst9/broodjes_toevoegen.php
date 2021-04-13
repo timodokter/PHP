@@ -20,6 +20,10 @@
     </ul>
     <form action="index.php" method="get">
         <label>
+            Vul hier de naam van het broodje in: <br>
+            <input type="text" name="naam-broodje"> <br>
+        </label>
+        <label>
             Vul hier het soort meel waarmee het broodje gemaakt is in: <br>
             <input type="text" name="meel-broodje"> <br>
         </label>
